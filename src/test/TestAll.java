@@ -21,6 +21,14 @@ public class TestAll
 	}
 	
 	@Test
+	public void OTMByIteration() throws Exception
+	{
+		assertEquals(6, OTM.runIterative(TestExamples.getSize(0), TestExamples.getSequence(0)));
+		assertEquals(9, OTM.runIterative(TestExamples.getSize(1), TestExamples.getSequence(1)));
+		assertEquals(5, OTM.runIterative(TestExamples.getSize(2), TestExamples.getSequence(2)));
+	}
+	
+	@Test
 	public void LRU() throws Exception
 	{
 		assertEquals(8, LRU.run(TestExamples.getSize(0), TestExamples.getSequence(0)));
