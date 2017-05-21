@@ -3,10 +3,10 @@ import java.util.ListIterator;
 
 public class LRU
 {
-	public static int run(int size, Integer[] sequence)
+	public static int run(int size, int nPages, Integer[] sequence)
 	{
 		LinkedList<Integer> pages = new LinkedList<Integer>();
-		boolean[] in = new boolean[sequence.length + 1];
+		boolean[] in = new boolean[nPages];
 		
 		int faults = 0;
 		

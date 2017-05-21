@@ -2,10 +2,10 @@ import java.util.LinkedList;
 
 public class OTM
 {
-	public static int run(int size, Integer[] sequence)
+	public static int run(int size, int nPages, Integer[] sequence)
 	{
 		@SuppressWarnings("unchecked")
-		LinkedList<Integer>[] uses = new LinkedList[sequence.length + 1];
+		LinkedList<Integer>[] uses = new LinkedList[nPages];
 		
 		for (int i = 0; i < sequence.length; i++)
 		{
@@ -18,7 +18,7 @@ public class OTM
 		}
 		
 		int[] pages = new int[size];
-		boolean[] in = new boolean[sequence.length + 1]; 
+		boolean[] in = new boolean[nPages]; 
 		int faults = 0;
 		
 		for (int page : sequence)
@@ -45,10 +45,10 @@ public class OTM
 		return faults;
 	}
 	
-	public static int runIterative(int size, Integer[] sequence)
+	public static int runIterative(int size, int nPages, Integer[] sequence)
 	{
 		int[] pages = new int[size];
-		boolean[] in = new boolean[sequence.length + 1]; 
+		boolean[] in = new boolean[nPages]; 
 		int faults = 0;
 
 		for (int iSeq = 0; iSeq < sequence.length; iSeq++)

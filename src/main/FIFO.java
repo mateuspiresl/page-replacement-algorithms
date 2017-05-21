@@ -1,10 +1,10 @@
 
 public class FIFO
 {
-	public static int run(int size, Integer[] sequence)
+	public static int run(int size, int nPages, Integer[] sequence)
 	{
 		int[] pages = new int[size];
-		boolean[] in = new boolean[sequence.length + 1];
+		boolean[] in = new boolean[nPages];
 		
 		int faults = 0;
 		
