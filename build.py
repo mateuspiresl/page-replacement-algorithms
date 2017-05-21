@@ -5,6 +5,6 @@ try:
 except:
 	pass
 
-call(["javac", "-d", "bin/", "src/*.java"])
+call(["javac", "-d", "bin/", "src/main/*.java"])
 
-# javac -d bin src/*.java
+# javac -d bin src/main/*.java
