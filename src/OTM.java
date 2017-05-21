@@ -26,26 +26,19 @@ public class OTM
 			uses[page].poll();
 			if (in[page]) continue;
 			
-			int to = faults;
-			if (to >= size) {
-				to = -1;
+			if (faults >= size) {
+				int to = 0;
 				
-				for (int iPag = 0; iPag < size; iPag++)
-				{
-					if (uses[pages[iPag]].size() == 0)
-					{
+				for (int iPag = 1; iPag < size && !uses[pages[to]].isEmpty(); iPag++)
+					if (uses[pages[iPag]].isEmpty() || uses[pages[iPag]].peek() > uses[pages[to]].peek())
 						to = iPag;
-						break;
-					}
-					else if (to == -1 || uses[pages[iPag]].peek() > uses[pages[to]].peek()) {
-						to = iPag;
-					}
-				}
+				
+				in[pages[to]] = false;
+				pages[to] = page;
 			}
+			else pages[faults] = page;
 			
-			if (faults >= size) in[pages[to]] = false;
-			in[pages[to] = page] = true;
-
+			in[page] = true;
 			faults++;
 		}
 		
